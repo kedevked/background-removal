@@ -1,0 +1,81 @@
+.image-card {
+  max-width: 80%;
+  margin: auto;
+  height: 50vh;
+}
+
+.layout {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.image-card {
+  display: flex;
+  flex-direction: column;
+
+  mat-card-title {
+    flex: 0 0 10%;
+  }
+
+  mat-card-content {
+    flex: 0 0 calc(90% - 4em);
+    overflow: hidden;
+  }
+
+  mat-card-actions {
+    flex: 0 0 2em;
+  }
+}
+
+.image-container {
+  height: 70%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-input {
+  margin-top: 1em;
+}
+
+button {
+  height: 2.5em;
+}
+
+.bottom-actions {
+  display: flex;
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  > *:not(.spacer) {
+    flex: 1;
+  }
+}
+
+.actions-button {
+  width: 150px;
+}
+
+.actions-button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.background-waterfall1 {
+  background-image: url("../assets/waterfall1.jpg"); // add the path to your image
+  background-size: 373px;
+}
+
+.background-waterfall2 {
+  background-image: url("../assets/waterfall2.jpg"); // add the path to your image
+  background-size: 373px;
+}
+
+img {
+  width: 373px;
+}

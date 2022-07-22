@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+  <span>Background Removal</span>
+</mat-toolbar>
+<div class="layout">
+  <section>
+    <mat-card class="image-card">
+      <mat-card-title>Original image</mat-card-title>
+      <mat-card-content>
+        <div class="image-container">
+          <img mat-card-image src="{{ url }}" />
+        </div>
+        <input
+          type="file"
+          class="image-input"
+          (change)="onFileChanged($event)"
+        />
+      </mat-card-content>
+      <mat-card-actions class="bottom-actions">
+        <div class="spacer"></div>
+        <div class="actions-button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            class="actions-button"
+            (click)="removeBackground()"
+          >
+            Remove Background
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+  <section>
+    <mat-card class="image-card">
+      <mat-card-title>Image transformed</mat-card-title>
+      <mat-card-content>
+        <div class="image-container">
+          <mat-spinner *ngIf="isLoading"></mat-spinner>
+          <img
+            [class.background-waterfall1]="filter === 'waterfall1'"
+            [class.background-waterfall2]="filter === 'waterfall2'"
+            *ngIf="urlTransformed && !isLoading"
+            mat-card-image
+            [src]="urlTransformed"
+          />
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="filter = 'waterfall1'">Waterfall 1</button>
+        <button mat-button (click)="filter = 'waterfall2'">Waterfall 2</button>
+      </mat-card-actions>
+      <mat-card-footer> </mat-card-footer>
+    </mat-card>
+  </section>
+</div>
